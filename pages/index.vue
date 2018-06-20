@@ -26,7 +26,7 @@
         <!-- <v-card-actions>
           <v-spacer></v-spacer>
           TODO button not working properly, points to wrong localized page
-          <v-btn color="primary" flat nuxt :to="localePath('Inspire')">Continue</v-btn>
+          <v-btn color="primary" nuxt :to="localePath('Inspire')">Continue</v-btn>
         </v-card-actions> -->
       </v-card>
     </v-flex>

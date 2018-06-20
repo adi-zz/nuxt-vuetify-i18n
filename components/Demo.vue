@@ -34,7 +34,7 @@
         </v-btn>
     </div>
     <div>
-        <v-btn color="primary" flat nuxt :to="localePath({name: 'Inspire'})">{{$t('goto')}}</v-btn>
+        <v-btn color="primary" nuxt :to="localePath({name: 'Inspire'})">{{$t('goto')}}</v-btn>
     </div>
   </div>
 </template>
