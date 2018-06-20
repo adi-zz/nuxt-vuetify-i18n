@@ -83,14 +83,14 @@ module.exports = {
         },
       ],
       defaultLocale: 'en',
-      routes: {
+      pages: {
         'Inspire/index': {
           en: '/ENGLISH-inspire',
           es: '/SPANISH-inspire',
         },
       },
-      // avoid error "Cannot read property 'indexOf' of undefined" in server-bundle.js@head()#this.$i18n.ignorePaths.indexOf
-      seo: false,
+      // disable acorn parsing, https://github.com/nuxt-community/nuxt-i18n/issues/78
+      parsePages: false,
       vueI18n:    {
         fallbackLocale: 'en',
         // TODO not working properly - these strings are ignored if there is <i18n> in component

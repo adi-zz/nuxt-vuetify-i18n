@@ -11,7 +11,7 @@
         </footer>
       </blockquote>
       <div>
-        <v-btn color="primary" flat nuxt to="/">back</v-btn>
+        <v-btn color="primary" flat nuxt :to="localePath('index')">back</v-btn>
       </div>
     </v-flex>
   </v-layout>

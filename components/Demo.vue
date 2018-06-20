@@ -1,11 +1,11 @@
 <template>
   <div>
-    <p>
+    <!-- <p>
         localized text (using $t): {{$t('hello')}}
     </p>
     <p>
         localized text (using v-t): <span v-t="'hello'"/>
-    </p>
+    </p> -->
     <div>current locale: {{$i18n.locale}}</div>
     <div>
         <v-btn
@@ -34,7 +34,7 @@
         </v-btn>
     </div>
     <div>
-        <v-btn color="primary" flat nuxt :to="localePath('Inspire')">{{$t('goto')}}</v-btn>
+        <v-btn color="primary" flat nuxt :to="localePath({name: 'Inspire'})">{{$t('goto')}}</v-btn>
     </div>
   </div>
 </template>
