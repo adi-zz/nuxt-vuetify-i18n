@@ -62,6 +62,51 @@ module.exports = {
           })
         ]
       }
+
+      // enable <i18n> blocks in sfc
+      const vueLoader = config.module.rules.find(rule => rule.loader === 'vue-loader')
+      vueLoader.options.loaders.i18n = '@kazupon/vue-i18n-loader'
     }
-  }
+  },
+  modules: [
+    ['nuxt-i18n', {
+      locales: [
+        {
+          code: 'en',
+          iso:  'en-US',
+          name: 'English',
+        },
+        {
+          code: 'es',
+          iso:  'es',
+          name: 'Español',
+        },
+      ],
+      defaultLocale: 'en',
+      routes: {
+        'Inspire/index': {
+          en: '/ENGLISH-inspire',
+          es: '/SPANISH-inspire',
+        },
+      },
+      // avoid error "Cannot read property 'indexOf' of undefined" in server-bundle.js@head()#this.$i18n.ignorePaths.indexOf
+      seo: false,
+      vueI18n:    {
+        fallbackLocale: 'en',
+        // TODO not working properly - these strings are ignored if there is <i18n> in component
+        messages:       {
+          es: {
+            hello: 'mensaje global de saludo',
+            english: "inglés (de global)",
+            spanish: "español (de global)"
+          },
+          en: {
+            hello: 'global hello message',
+            english: "english (from global)",
+            spanish: "spanish (from global)"
+          },
+        },
+      },
+    }],
+  ],
 }

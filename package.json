@@ -17,6 +17,7 @@
     "vuetify": "^1.0.19"
   },
   "devDependencies": {
+    "@kazupon/vue-i18n-loader": "^0.3.0",
     "babel-eslint": "^7.2.3",
     "babel-plugin-transform-imports": "^1.4.1",
     "eslint": "^4.3.0",
