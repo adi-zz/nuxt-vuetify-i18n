@@ -11,7 +11,10 @@
         </footer>
       </blockquote>
       <div>
-        <v-btn color="primary" nuxt :to="localePath('index')">back</v-btn>
+        <v-btn color="primary" nuxt :to="path('')">back</v-btn>
+      </div>
+      <div>
+        <span style="font-family: 'Material Icons'">exit_to_app</span>
       </div>
     </v-flex>
   </v-layout>

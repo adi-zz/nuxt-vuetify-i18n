@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "nuxt": "^1.4.1",
-    "nuxt-i18n": "^4.0.1",
     "vue-i18n": "^8.0.0",
     "vuetify": "^1.0.19"
   },

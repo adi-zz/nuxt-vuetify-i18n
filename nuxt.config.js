@@ -1,7 +1,22 @@
 const nodeExternals = require('webpack-node-externals')
-const resolve = (dir) => require('path').join(__dirname, dir)
+// const resolve = (dir) => require('path').join(__dirname, dir)
 
 module.exports = {
+  router: {
+    middleware: 'i18n',
+    extendRoutes (routes, resolve) {
+      routes = routes.concat(routes.map(({name, path, component, chunkName}) => ({
+        name: `${name}-es`,
+        path: `/es${path}`,
+        component,
+        chunkName
+      })))
+      console.log('routes', routes)
+    }
+  },
+  // generate: {
+  //   routes: ['/', '/Inspire', '/es', '/es/Inspire']
+  // },
   /*
   ** Headers of the page
   */
@@ -10,14 +25,14 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt+vuetify+i18n demo problem \"not exist VueI18n instance in Vue instance\"' }
+      { hid: 'description', name: 'description', content: 'Nuxt+vuetify+i18n demo problem "not exist VueI18n instance in Vue instance"' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ]
   },
-  plugins: ['~/plugins/vuetify.js'],
+  plugins: ['~/plugins/vuetify.js', '~/plugins/i18n.js', '~/plugins/i18n_path.js'],
   css: [
     '~/assets/style/app.styl'
   ],
@@ -31,16 +46,18 @@ module.exports = {
   build: {
     babel: {
       plugins: [
-        ["transform-imports", {
-          "vuetify": {
-            "transform": "vuetify/es5/components/${member}",
-            "preventFullImport": true
+        ['transform-imports', {
+          'vuetify': {
+            // eslint-disable-next-line no-template-curly-in-string
+            'transform': 'vuetify/es5/components/${member}',
+            'preventFullImport': true
           }
         }]
       ]
     },
     vendor: [
       '~/plugins/vuetify.js'
+      // 'vue-i18n'
     ],
     extractCSS: true,
     /*
@@ -69,44 +86,44 @@ module.exports = {
     }
   },
   modules: [
-    ['nuxt-i18n', {
-      locales: [
-        {
-          code: 'en',
-          iso:  'en-US',
-          name: 'English',
-        },
-        {
-          code: 'es',
-          iso:  'es',
-          name: 'Español',
-        },
-      ],
-      defaultLocale: 'en',
-      pages: {
-        'Inspire/index': {
-          en: '/ENGLISH-inspire',
-          es: '/SPANISH-inspire',
-        },
-      },
-      // disable acorn parsing, https://github.com/nuxt-community/nuxt-i18n/issues/78
-      parsePages: false,
-      vueI18n:    {
-        fallbackLocale: 'en',
-        // TODO not working properly - these strings are ignored if there is <i18n> in component
-        messages:       {
-          es: {
-            hello: 'mensaje global de saludo',
-            english: "inglés (de global)",
-            spanish: "español (de global)"
-          },
-          en: {
-            hello: 'global hello message',
-            english: "english (from global)",
-            spanish: "spanish (from global)"
-          },
-        },
-      },
-    }],
-  ],
+    // ['nuxt-i18n', {
+    //   locales: [
+    //     {
+    //       code: 'en',
+    //       iso:  'en-US',
+    //       name: 'English',
+    //     },
+    //     {
+    //       code: 'es',
+    //       iso:  'es',
+    //       name: 'Español',
+    //     },
+    //   ],
+    //   defaultLocale: 'en',
+    //   pages: {
+    //     'Inspire/index': {
+    //       en: '/ENGLISH-inspire',
+    //       es: '/SPANISH-inspire',
+    //     },
+    //   },
+    //   // disable acorn parsing, https://github.com/nuxt-community/nuxt-i18n/issues/78
+    //   parsePages: false,
+    //   vueI18n:    {
+    //     fallbackLocale: 'en',
+    //     // TODO not working properly - these strings are ignored if there is <i18n> in component
+    //     messages:       {
+    //       es: {
+    //         hello: 'mensaje global de saludo',
+    //         english: "inglés (de global)",
+    //         spanish: "español (de global)"
+    //       },
+    //       en: {
+    //         hello: 'global hello message',
+    //         english: "english (from global)",
+    //         spanish: "spanish (from global)"
+    //       },
+    //     },
+    //   },
+    // }],
+  ]
 }
