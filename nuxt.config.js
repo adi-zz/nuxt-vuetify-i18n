@@ -91,6 +91,7 @@ module.exports = {
       },
       // disable acorn parsing, https://github.com/nuxt-community/nuxt-i18n/issues/78
       parsePages: false,
+      seo: false, // quick fix for https://github.com/nuxt-community/nuxt-i18n/issues/100
       vueI18n:    {
         fallbackLocale: 'en',
         // TODO not working properly - these strings are ignored if there is <i18n> in component
