@@ -1,7 +1,7 @@
 {
   "name": "nuxt-vuetify-i18n",
   "version": "1.0.0",
-  "description": "Nuxt+vuetify+i18n demo problem \"not exist VueI18n instance in Vue instance\"",
+  "description": "vue-i18n demo for translations not updated in hidden areas",
   "author": "adi-zz",
   "private": true,
   "scripts": {
