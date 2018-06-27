@@ -1,6 +1,6 @@
 # nuxt-vuetify-i18n
 
-> Nuxt+vuetify+i18n demo problem \"not exist VueI18n instance in Vue instance\"
+> vue-i18n demo for translations not updated in hidden areas
 
 ## Build Setup
 
